@@ -10,7 +10,10 @@ use crate::bytecode::ByteCode;
 /*
 
     Q: Why is this faster than vm_research::interpreter_switchcase()?
-    A: Here,
+
+    Short Answer: It works similar to computed-gotos
+
+    Long Answer: Here,
     LLVM is effectively replacing the continue statements with copies of the
     indirect branch at the top of the loop. It could also do that with the
     indirect branch that is inherent in a switch; it chooses to not do that
@@ -23,7 +26,7 @@ use crate::bytecode::ByteCode;
 
 */
 
-pub fn interpeter_computed_goto(code: &Vec<ByteCode>, init_val: i32) -> i32 {
+pub fn interpeter_computed_goto(code: &[ByteCode], init_val: i32) -> i32 {
     let mut val = init_val;
     let mut idx = 0;
 

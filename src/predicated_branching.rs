@@ -1,13 +1,24 @@
 /*
     VM Research
 
+    using predicates / wish branching
+
+    still WIP.
+
+    Need to rethink the implementation,
+    cool idea tho.
+
+    Plan failed due to current implementation
+    having too much function call overhead.
+
+    Probably a good idea for future.
+
     Author: MrMouse2405
     Date:   Sep 13,2024
 */
 
 use crate::bytecode::ByteCode;
 
-#[inline(always)]
 fn inc(v: i32) -> i32 {
     v + 1
 }
@@ -16,32 +27,26 @@ fn inc_dec(v: &mut i32, dec: fn(i32) -> i32) {
     *v += 1;
 }
 
-#[inline(always)]
 fn dec(v: i32) -> i32 {
     v - 1
 }
 
-#[inline(always)]
 fn neg(v: i32) -> i32 {
     -v
 }
 
-#[inline(always)]
 fn mul2(v: i32) -> i32 {
     v * 2
 }
 
-#[inline(always)]
 fn div2(v: i32) -> i32 {
     v / 2
 }
 
-#[inline(always)]
 fn add7(v: i32) -> i32 {
     v + 7
 }
 
-#[inline(always)]
 fn empty(v: i32) -> i32 {
     v
 }

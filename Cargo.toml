@@ -3,11 +3,21 @@ name = "vm_research"
 version = "0.1.0"
 edition = "2021"
 
+[profile.bench]
+debug = true
+
+[profile.release]
+debug = true
+
+[profile.dev]
+debug = true
+
 [dependencies]
 criterion = { version = "0.5.1", features = ["html_reports"] }
 gnuplot = "0.0.43"
 rand = "0.8.5"
 random = "0.14.0"
+tailcall = "1.0.1"
 
 [[bench]]
 name = "vm_benchmark"
