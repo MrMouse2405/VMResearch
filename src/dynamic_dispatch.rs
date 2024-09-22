@@ -13,7 +13,6 @@
     there, and reuse the same stack, we can achieve this.
 
     Explanation for logic:
-
     Each operation, holds the pointer to next operation.
     This way, branch predictor knows exactly what function to call next.
 
